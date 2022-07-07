@@ -46,8 +46,8 @@ client.on('messageCreate',
             embedMessage = new MessageEmbed()
               .setColor('#36c0eb')
               .setTitle('OH BOY')
-              .setDescription('Natkashi Theater will be playing **' + movie + '**');
-            messages.channel.send({ embeds: [embedMessage]});
+              .setDescription('Natstheater will be showing **' + movie + '**');
+            messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
           }
           break;
 
@@ -56,13 +56,13 @@ client.on('messageCreate',
             embedMessage = new MessageEmbed()
               .setColor('#36c0eb')
               .setTitle('HOT DAMN')
-              .setDescription('There is no movie playing in the Natskashi Theater right now :(');
+              .setDescription('There is no movie showing in the Natstheater right now :(');
             messages.channel.send({ embeds: [embedMessage]});
-          }else {
+          } else {
             embedMessage = new MessageEmbed()
-            .setColor('#36c0eb')
-            .setTitle('Now Playing')
-            .setDescription('Natskashi Theater is now playing **' + movie + '**');
+              .setColor('#36c0eb')
+              .setTitle('Now Showing')
+              .setDescription('Natstheater is now showing **' + movie + '**');
             messages.channel.send({ embeds: [embedMessage]});
           }
           break;
@@ -72,20 +72,65 @@ client.on('messageCreate',
             embedMessage = new MessageEmbed()
               .setColor('#36c0eb')
               .setTitle('HOT DAMN')
-              .setDescription('There is no movie playing in the Natskashi Theater right now :(');
+              .setDescription('There is no movie showing in the Natstheater right now :(');
             messages.channel.send({ embeds: [embedMessage]});          
           } else {
             embedMessage = new MessageEmbed()
               .setColor('#36c0eb')
               .setTitle('Of course, as always you can check out some more movies... right now!')
-              .setDescription('**' + movie + '** has finished playing in the Natskashi Theatre');
+              .setDescription('**' + movie + '** has finished showing in the Natstheater');
             messages.channel.send({ embeds: [embedMessage]});
             movie = '';
             }
           break;
 
-          // TODO: maybe add reminders for 10/5min before and when it starts but
-          // idk if they want to @ everyone though
+        case 'r10':
+          if(movie === ''){
+            embedMessage = new MessageEmbed()
+              .setColor('#36c0eb')
+              .setTitle('HOT DAMN')
+              .setDescription('There is no movie showing in the Natstheater right now :(');
+            messages.channel.send({ embeds: [embedMessage]});          
+          } else {
+            embedMessage = new MessageEmbed()
+              .setColor('#36c0eb')
+              .setTitle('Movie starting soon!')
+              .setDescription('**' + movie + '** will begin in 10 minutes!');
+              messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
+          }
+          break;
+
+          case 'r5':
+            if(movie === ''){
+              embedMessage = new MessageEmbed()
+                .setColor('#36c0eb')
+                .setTitle('HOT DAMN')
+                .setDescription('There is no movie showing in the Natstheater right now :(');
+              messages.channel.send({ embeds: [embedMessage]});          
+            } else {
+              embedMessage = new MessageEmbed()
+                .setColor('#36c0eb')
+                .setTitle('Movie starting soon!')
+                .setDescription('**' + movie + '** will begin in 5 minutes!');
+                messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
+              }
+            break;
+
+          case 'start':
+            if(movie === ''){
+              embedMessage = new MessageEmbed()
+                .setColor('#36c0eb')
+                .setTitle('HOT DAMN')
+                .setDescription('There is no movie showing in the Natstheater right now :(');
+              messages.channel.send({ embeds: [embedMessage]});          
+            } else {
+              embedMessage = new MessageEmbed()
+                .setColor('#36c0eb')
+                .setTitle('GET IN HERE.')
+                .setDescription('**' + movie + '** will begin now!');
+              messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
+            }
+            break;
        }
     }
 });
