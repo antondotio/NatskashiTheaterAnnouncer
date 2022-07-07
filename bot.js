@@ -18,9 +18,6 @@ client.login(process.env.TOKEN);
 
 client.on('messageCreate',
   function(messages) {
-    // if(messages.content.toLocaleLowerCase() === 'hello'){
-    //   messages.channel.send('WELL WELL WELL... look who it is... its ' + messages.author.username);
-    // }
     if(messages.content.substring(0,1) === '!'){
       let args = messages.content.substring(1).split(' ');
       let cmd = args[0];
@@ -36,14 +33,24 @@ client.on('messageCreate',
             .setDescription('Good to see you ' + messages.author.username);
           messages.channel.send({ embeds: [embedMessage]});
           break;
+
         case 'setmovie':
-          movie = args.join(' ');
-          embedMessage = new MessageEmbed()
+          if(args.length === 0){
+            embedMessage = new MessageEmbed()
             .setColor('#36c0eb')
-            .setTitle('OH BOY')
-            .setDescription('Natkashi Theater will be playing **' + movie + '**');
-          messages.channel.send({ embeds: [embedMessage]});
+            .setTitle('well?')
+            .setDescription('Are you gonna add a movie or...');
+            messages.channel.send({ embeds: [embedMessage]});
+          } else {
+            movie = args.join(' ');
+            embedMessage = new MessageEmbed()
+              .setColor('#36c0eb')
+              .setTitle('OH BOY')
+              .setDescription('Natkashi Theater will be playing **' + movie + '**');
+            messages.channel.send({ embeds: [embedMessage]});
+          }
           break;
+
         case 'watching':
           if(movie === ''){
             embedMessage = new MessageEmbed()
@@ -59,6 +66,7 @@ client.on('messageCreate',
             messages.channel.send({ embeds: [embedMessage]});
           }
           break;
+        
         case 'clear':
           if(movie === ''){
             embedMessage = new MessageEmbed()
@@ -80,4 +88,4 @@ client.on('messageCreate',
           // idk if they want to @ everyone though
        }
     }
-})
+});
