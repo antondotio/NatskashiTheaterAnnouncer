@@ -28,39 +28,39 @@ client.on('messageCreate',
       switch(cmd) {
         case 'hello':
           embedMessage = new MessageEmbed()
-            .setColor('#36c0eb')
+            .setColor('#65e054')
             .setTitle('WELL WELL WELL...')
             .setDescription('Good to see you ' + messages.author.username);
           messages.channel.send({ embeds: [embedMessage]});
           break;
 
-        case 'setmovie':
+        case 'set':
           if(args.length === 0){
             embedMessage = new MessageEmbed()
-            .setColor('#36c0eb')
+            .setColor('#65e054')
             .setTitle('well?')
             .setDescription('Are you gonna add a movie or...');
             messages.channel.send({ embeds: [embedMessage]});
           } else {
             movie = args.join(' ');
             embedMessage = new MessageEmbed()
-              .setColor('#36c0eb')
+              .setColor('#65e054')
               .setTitle('OH BOY')
               .setDescription('Natstheater will be showing **' + movie + '**');
             messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
           }
           break;
 
-        case 'watching':
+        case 'showing':
           if(movie === ''){
             embedMessage = new MessageEmbed()
-              .setColor('#36c0eb')
+              .setColor('#65e054')
               .setTitle('HOT DAMN')
               .setDescription('There is no movie showing in the Natstheater right now :(');
             messages.channel.send({ embeds: [embedMessage]});
           } else {
             embedMessage = new MessageEmbed()
-              .setColor('#36c0eb')
+              .setColor('#65e054')
               .setTitle('Now Showing')
               .setDescription('Natstheater is now showing **' + movie + '**');
             messages.channel.send({ embeds: [embedMessage]});
@@ -70,13 +70,13 @@ client.on('messageCreate',
         case 'clear':
           if(movie === ''){
             embedMessage = new MessageEmbed()
-              .setColor('#36c0eb')
+              .setColor('#65e054')
               .setTitle('HOT DAMN')
               .setDescription('There is no movie showing in the Natstheater right now :(');
             messages.channel.send({ embeds: [embedMessage]});          
           } else {
             embedMessage = new MessageEmbed()
-              .setColor('#36c0eb')
+              .setColor('#65e054')
               .setTitle('Of course, as always you can check out some more movies... right now!')
               .setDescription('**' + movie + '** has finished showing in the Natstheater');
             messages.channel.send({ embeds: [embedMessage]});
@@ -84,53 +84,31 @@ client.on('messageCreate',
             }
           break;
 
-        case 'r10':
+        case 't':
           if(movie === ''){
             embedMessage = new MessageEmbed()
-              .setColor('#36c0eb')
+              .setColor('#65e054')
               .setTitle('HOT DAMN')
               .setDescription('There is no movie showing in the Natstheater right now :(');
             messages.channel.send({ embeds: [embedMessage]});          
           } else {
-            embedMessage = new MessageEmbed()
-              .setColor('#36c0eb')
-              .setTitle('Movie starting soon!')
-              .setDescription('**' + movie + '** will begin in 10 minutes!');
+            let time = args[0];
+            if(time == 0){
+              embedMessage = new MessageEmbed()
+              .setColor('#65e054')
+              .setTitle('GET IN HERE.')
+              .setDescription('**' + movie + '** will begin now!');
               messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
-          }
-          break;
-
-          case 'r5':
-            if(movie === ''){
-              embedMessage = new MessageEmbed()
-                .setColor('#36c0eb')
-                .setTitle('HOT DAMN')
-                .setDescription('There is no movie showing in the Natstheater right now :(');
-              messages.channel.send({ embeds: [embedMessage]});          
+          
             } else {
               embedMessage = new MessageEmbed()
-                .setColor('#36c0eb')
-                .setTitle('Movie starting soon!')
-                .setDescription('**' + movie + '** will begin in 5 minutes!');
-                messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
-              }
-            break;
-
-          case 'start':
-            if(movie === ''){
-              embedMessage = new MessageEmbed()
-                .setColor('#36c0eb')
-                .setTitle('HOT DAMN')
-                .setDescription('There is no movie showing in the Natstheater right now :(');
-              messages.channel.send({ embeds: [embedMessage]});          
-            } else {
-              embedMessage = new MessageEmbed()
-                .setColor('#36c0eb')
-                .setTitle('GET IN HERE.')
-                .setDescription('**' + movie + '** will begin now!');
+              .setColor('#65e054')
+              .setTitle('Movie starting soon!')
+              .setDescription('**' + movie + '** will begin in ' + time + ' minutes!');
               messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
             }
-            break;
-       }
+          }
+          break;
+      } 
     }
-});
+  });
