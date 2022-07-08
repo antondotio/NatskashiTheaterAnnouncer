@@ -111,4 +111,5 @@ client.on('messageCreate',
           break;
       } 
     }
-  });
+  }
+);
