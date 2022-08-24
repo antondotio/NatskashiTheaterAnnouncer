@@ -41,7 +41,7 @@ client.on('messageCreate',
             embedMessage = new MessageEmbed()
             .setColor('#65e054')
             .setTitle('well?')
-            .setDescription('Are you gonna add a movie or...');
+            .setDescription('Are you gonna add something or...');
             messages.channel.send({ embeds: [embedMessage]});
           } else {
             movie = args.join(' ');
@@ -58,7 +58,7 @@ client.on('messageCreate',
             embedMessage = new MessageEmbed()
               .setColor('#65e054')
               .setTitle('HOT DAMN')
-              .setDescription('There is no movie showing in the Natstheater right now :(');
+              .setDescription('There is nothing showing in the Natstheater right now :(');
             messages.channel.send({ embeds: [embedMessage]});
           } else {
             embedMessage = new MessageEmbed()
@@ -74,7 +74,7 @@ client.on('messageCreate',
             embedMessage = new MessageEmbed()
               .setColor('#65e054')
               .setTitle('HOT DAMN')
-              .setDescription('There is no movie showing in the Natstheater right now :(');
+              .setDescription('There is nothing showing in the Natstheater right now :(');
             messages.channel.send({ embeds: [embedMessage]});          
           } else {
             embedMessage = new MessageEmbed()
@@ -91,7 +91,7 @@ client.on('messageCreate',
             embedMessage = new MessageEmbed()
               .setColor('#65e054')
               .setTitle('HOT DAMN')
-              .setDescription('There is no movie showing in the Natstheater right now :(');
+              .setDescription('There is nothing showing in the Natstheater right now :(');
             messages.channel.send({ embeds: [embedMessage]});          
           } else {
             let time = args[0];
@@ -105,7 +105,7 @@ client.on('messageCreate',
             } else {
               embedMessage = new MessageEmbed()
               .setColor('#65e054')
-              .setTitle('Movie starting soon!')
+              .setTitle('Showing starting soon!')
               .setDescription('**' + movie + '** will begin in ' + time + ' minutes!');
               messages.channel.send({ content: '<@&1011792376781606982>', embeds: [embedMessage]});
             }
