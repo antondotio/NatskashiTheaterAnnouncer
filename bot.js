@@ -95,7 +95,7 @@ client.on('messageCreate',
             messages.channel.send({ embeds: [embedMessage]});          
           } else {
             let time = args[0];
-            if(time == 0){
+            if(time == 0 || time == undefined){
               embedMessage = new MessageEmbed()
               .setColor('#65e054')
               .setTitle('GET IN HERE.')
