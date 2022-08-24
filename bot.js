@@ -25,6 +25,8 @@ client.on('messageCreate',
 
       args = args.splice(1);
 
+      // commands: 
+      // hello, set, showing, clear, t {number}
       switch(cmd) {
         case 'hello':
           embedMessage = new MessageEmbed()
@@ -47,7 +49,7 @@ client.on('messageCreate',
               .setColor('#65e054')
               .setTitle('OH BOY')
               .setDescription('Natstheater will be showing **' + movie + '**');
-            messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
+            messages.channel.send({ content: '<@&1011792376781606982>', embeds: [embedMessage]});
           }
           break;
 
@@ -98,14 +100,14 @@ client.on('messageCreate',
               .setColor('#65e054')
               .setTitle('GET IN HERE.')
               .setDescription('**' + movie + '** will begin now!');
-              messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
+              messages.channel.send({ content: '<@&1011792376781606982>', embeds: [embedMessage]});
           
             } else {
               embedMessage = new MessageEmbed()
               .setColor('#65e054')
               .setTitle('Movie starting soon!')
               .setDescription('**' + movie + '** will begin in ' + time + ' minutes!');
-              messages.channel.send({ content: '<@&994740954546323536>', embeds: [embedMessage]});
+              messages.channel.send({ content: '<@&1011792376781606982>', embeds: [embedMessage]});
             }
           }
           break;
