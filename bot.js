@@ -35,6 +35,14 @@ client.on('messageCreate',
             .setDescription('Good to see you ' + messages.author.username);
           messages.channel.send({ embeds: [embedMessage]});
           break;
+        
+        case 'timezone':
+          embedMessage = new MessageEmbed()
+            .setColor('#65e054')
+            .setTitle('What a wonderful day!')
+            .setDescription('Happy Timezone, ' + messages.author.username + '!');
+          messages.channel.send({ embeds: [embedMessage]});
+          break;
 
         case 'set':
           if(args.length === 0){
